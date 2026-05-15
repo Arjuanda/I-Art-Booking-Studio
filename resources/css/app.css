@@ -1,0 +1,312 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+          --bg: #0085db12;
+      --muted: #6b7280;
+      --card: #ffffff;
+}
+
+    body {
+      background: var(--bg);
+      color: #0f172a;
+      -webkit-font-smoothing:antialiased;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .nav-scrolled {
+      position: fixed;
+      top: 20px;
+      width: 98%;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      z-index: 50;
+
+      background: rgba(100, 100, 100, 0.7);
+      backdrop-filter: blur(10px);
+
+      border-radius: 9999px;
+      padding: 10px 70px;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    #slider::-webkit-scrollbar {
+      display: none;
+    }
+    #slider {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @font-face {
+      font-family: 'Futura PT';
+      src: url('/fonts/FuturaPTCond.otf') format('opentype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    .font-hero {
+      font-family: 'Futura PT', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .signature {
+        font-family: 'Brush Script MT', cursive;
+    }
+
+    .shadow-md {
+      --tw-shadow: 0px 2px 6px rgba(37, 83, 185, 0.1);
+      --tw-shadow-colored: 0px 2px 6px var(--tw-shadow-color);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+
+    .sidebar-item  {
+    white-space: nowrap;
+    align-items: center;
+    line-height: 25px;
+    position: relative;
+    margin: 5px 0;
+    padding: 6px 0;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 450;
+    gap: 4px;
+    }
+
+    .card-soft{
+      background: var(--card);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      transition: background .25s ease, box-shadow .25s ease;
+    }
+
+    .badge-role {
+      @apply inline-flex items-center px-2 py-1 text-xs font-medium rounded-full;
+    }
+
+    .badge-role[data-value="admin"] {
+      @apply bg-indigo-100 text-indigo-700;
+    }
+
+    .badge-role[data-value="karyawan"] {
+      @apply bg-teal-100 text-teal-700;
+    }
+
+        .badge-role2[data-value="admin"] {
+      @apply bg-indigo-500 text-indigo-700;
+    }
+
+    .badge-role2[data-value="karyawan"] {
+      @apply bg-teal-500 text-teal-700;
+    }
+
+    .badge-status {
+      @apply inline-flex items-center px-2 py-1 text-xs font-medium rounded-full;
+    }
+
+    .badge-status[data-value="pending"] {
+      @apply bg-yellow-100 text-yellow-700;
+    }
+
+    .badge-status[data-value="active"],
+    .badge-status[data-value="approved"] {
+      @apply bg-green-100 text-green-700;
+    }
+
+    .badge-status[data-value="banned"],
+    .badge-status[data-value="rejected"] {
+      @apply bg-red-100 text-red-700;
+    }
+
+    .badge-status[data-value="on-going"],
+    .badge-status[data-value="On Going"] {
+      @apply bg-blue-100 text-blue-700;
+    }
+
+    .badge-status[data-value="finished"] {
+      @apply bg-gray-400 text-gray-100;
+    }
+
+
+    .fc-event.approved .fc-daygrid-event-dot {
+        @apply bg-green-500;
+    }
+
+    .fc-event.pending .fc-daygrid-event-dot {
+        @apply bg-yellow-400;
+    }
+
+    .fc-event.rejected .fc-daygrid-event-dot {
+        @apply bg-red-500; 
+    }
+    .fc-event.on-going .fc-daygrid-event-dot {
+        @apply bg-blue-500; 
+    }
+    .fc-event.finished .fc-daygrid-event-dot {
+        @apply bg-gray-500; 
+    }
+
+    .sidebar-soft{
+      background: linear-gradient(180deg,#ffffff,#fbfdff);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      transition: background .25s ease, box-shadow .25s ease, width .25s ease, transform .28s cubic-bezier(.2,.9,.3,1);
+    }
+
+    .badge-btn{
+      width:44px; height:44px; border-radius:10px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg,#ff6ea6,#7b61ff);
+      color:white; font-weight:700;
+      box-shadow: 6px 8px 20px rgba(123,97,255,0.12);
+    }
+
+    /* chart placeholders style (if JS disabled) */
+    .chart-area, .chart-placeholder {
+      border-radius: 12px;
+      background: linear-gradient(180deg,#fff,#f7f9ff);
+      box-shadow: inset 0 -8px 30px rgba(99,102,241,0.04);
+    }
+    .chart-placeholder { height:220px; }
+    .chart-area { height:300px; }
+
+    .hover-gradient:hover {
+    background-color: rgb(229 243 251 / var(--tw-bg-opacity, 1));
+    color: rgb(0 133 219 / var(--tw-text-opacity, 1));
+    }
+    .active-gradient {
+    background-color: rgb(229 243 251 / var(--tw-bg-opacity, 1));
+    color: rgb(0 133 219 / var(--tw-text-opacity, 1));
+    }
+
+    .scroll-hide::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    #sidebar {
+      transition: transform 0.3s ease;
+      top: 0;
+      left: 0;
+      height: 100%;
+      transform: translateX(0);
+      transition: transform 0.3s ease; 
+      z-index: 30;
+    }
+
+    #sidebar.mobile-hidden {
+      transform: translateX(0);
+      transition: transform 0.3s ease;
+    }
+
+    #sidebar.collapsed { width: 80px !important; }
+    #sidebar.collapsed .sidebar-label { display:none; }
+    #sidebar.collapsed .sidebar-sub { display:none; }
+    #sidebar.collapsed .logo-text { display:none; }
+
+    #overlay { display:none; background: rgba(0,0,0,0.35); position:fixed; inset:0; z-index:40; }
+
+    .soft-transition { transition: all .25s ease; }
+
+    .fc-event {
+      background: none !important; 
+      border: none !important;      
+      box-shadow: none !important;  
+      color: #3b82f6 !important;  
+      padding: 0px;  
+    }
+    .fc-daygrid-event-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;      
+      border: none;             
+      box-shadow: none;       
+      display: inline-block;
+    }
+    
+    .fc-daygrid-day-events{
+      height: 65px;
+      display: grid;
+      grid-template-rows: repeat(3, 12px);
+      grid-auto-flow: column;                 
+      row-gap: 10px; 
+      column-gap: 0px;                            
+      align-content: start;
+      margin-left: 30px;
+    }
+
+    .fc-daygrid-day-events::before {
+      content: none !important;
+      display: none !important;
+    }
+    .fc-daygrid-day-frame {
+      overflow: hidden; 
+    }
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      will-change: max-height;
+      transition: all 0.4s ease;
+    }
+
+    .faq-answer.open {
+      opacity: 1;
+    }
+    input, textarea {
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      transform: scale(1.02);
+    }
+    input[id="datePicker"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+    }
+
+@media (max-width: 640px) {
+    .fc-daygrid-day-frame .fc-daygrid-event-dot {
+        display: none !important;
+    }
+    .fc-daygrid-event-harness {
+        pointer-events: none;
+    }
+
+    .fc-daygrid-more-link {
+        pointer-events: auto;
+    }
+
+    .fc-more-popover .fc-daygrid-event-dot {
+        display: inline-block !important;
+    }
+    .fc-daygrid-day-frame {
+        position: relative;
+    }
+
+    .fc-daygrid-more-link {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+
+        width: 18px;
+        height: 18px;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        line-height: 1;
+        border-radius: 50%;
+    }
+    .fc-daygrid-more-link i {
+        color: #3b82f6;
+        font-size: 15px;
+    }    
+}
